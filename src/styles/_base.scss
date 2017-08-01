@@ -1,4 +1,6 @@
+@import '~normalize.css/normalize';
 @import "variables";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 @import "core";
 @import "fonts";
 @import "typografics";
@@ -41,3 +43,4 @@
 @import "confirmation";
 @import "payment-info";
 @import "clear-page";
+@import '~toastr/build/toastr.min.css';

@@ -4,12 +4,14 @@ import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import HeaderDashboard from 'components/HeaderDashboard';
+import SideMenu from 'components/SideMenu';
 
 class DashboardLayout extends React.Component {
   render() {    
     return (
-      <div>
+      <div className="container nopadding">
         <HeaderDashboard/>
+        <SideMenu/>
         {this.props.children}
       </div>
     )

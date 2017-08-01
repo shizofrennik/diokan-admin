@@ -6,9 +6,7 @@ import BaseLayout from '../layouts/BaseLayout';
 
 export const createRoutes = (store) => (
   {
-    path        : '/',
-    component   : BaseLayout,
-    indexRoute  : Dashboard(store),
+    component   : CoreLayout,
     childRoutes : [
       {
         path        : '/',
@@ -18,9 +16,7 @@ export const createRoutes = (store) => (
         ]
       },
       {
-        path        : '/',
         component   : BaseLayout,
-        indexRoute  : Dashboard(store),
         childRoutes : [
            LoginRoute(store)
         ]
