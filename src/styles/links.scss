@@ -1,0 +1,26 @@
+$block: diokan-link;
+
+
+.#{$block} {
+  font-size: 18px;
+  text-align: left;
+  color: $color6;
+  &:hover,
+  &:active,
+  &:focus,
+  &focus:active{
+    color: $color6;
+  }
+  &__underline{
+    text-decoration: underline;
+  }
+
+  &.#{$block} {
+    &__small{
+      font-size: 14px;
+    }
+    &__medium{
+      font-size: 16px;
+    }
+  }
+}

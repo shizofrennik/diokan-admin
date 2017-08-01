@@ -1,0 +1,15 @@
+$block: diokan-user-box;
+
+.#{$block}{
+  &__logo{
+    font-size: 44px;
+    line-height: 1;
+    color: $color15;
+  }
+  &__name{
+    font-size: 14px;
+    color: $color;
+    text-align: center;
+  }
+
+}

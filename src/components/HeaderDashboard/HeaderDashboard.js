@@ -1,0 +1,47 @@
+import React from 'react'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+
+class HeaderDashboard extends React.Component {
+    render() {
+        return (
+            <header className="diokan-header">
+                <div className="diokan-header-inner">
+                    <div className="diokan-header__logo">
+                        <div className="diokan-header__logo-text">
+                            Dashboard
+                        </div>
+                    </div>
+                    <div className="diokan-header__action-group">
+                        <div className="diokan-header__action-group-inner">
+                            <div className="diokan-balance-box">
+                                <div className="diokan-balance-box__title">
+                                    Balance
+                                </div>
+                                <div className="diokan-balance-box__count">
+                                    $641.77
+                                </div>
+                            </div>
+                        </div>
+                        <button className="diokan-btn diokan-btn-secondary diokan-btn-secondary_role-upload">
+                        <span className="diokan-icon diokan-icon__upload">
+                        </span>Upload
+                        </button>
+                    </div>
+                </div>
+            </header>
+        );
+    }
+}
+
+const mapStateToProps = (state, props) => {
+  return ({
+  })
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderDashboard)

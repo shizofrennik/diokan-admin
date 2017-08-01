@@ -1,0 +1,11 @@
+$block: diokan-helper;
+
+
+.#{$block} {
+  text-align: center;
+  &-message {
+    font-size: 20px;
+    text-align: center;
+    color: $color2;
+  }
+}

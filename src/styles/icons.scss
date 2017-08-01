@@ -1,0 +1,37 @@
+$block: diokan-icon;
+
+.#{$block} {
+  display: inline-block;
+  font-family: FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &__facebook{
+    &:before{
+      content: "\f09a" !important;
+      background: $color8;
+    }
+  }
+  &__twitter{
+    &:before{
+      content: "\f099" !important;
+      background: $color9;
+    }
+  }
+  &__google{
+    &:before{
+      content: "\f1a0" !important;
+      background: $color10;
+    }
+  }
+  &__upload{
+    &:before{
+      content: "\f0ee";
+    }
+  }
+  &__complete{
+    &:before{
+      content: "\f058";
+    }
+  }
+}
