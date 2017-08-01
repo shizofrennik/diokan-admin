@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Header from 'components/Header';
+import Footer from 'components/Footer';
 
 class BaseLayout extends React.Component {
   render() {    
     return (
       <div>
         <Header/>
-        {this.props.children}
+          <div className="diokan-entry-page-wrap">{this.props.children}</div>
+        <Footer/>
       </div>
     )
   }
