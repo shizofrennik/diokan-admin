@@ -20,9 +20,12 @@
   "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
   "license": "MIT",
   "dependencies": {
+    "auth0-js": "^8.8.0",
+    "axios": "^0.16.2",
     "bootstrap-sass": "^3.3.7",
     "compression": "^1.6.2",
     "express": "^4.14.0",
+    "jwt-decode": "^2.2.0",
     "normalize.css": "^7.0.0",
     "object-assign": "^4.1.1",
     "promise": "^7.1.1",
