@@ -32,3 +32,35 @@ $block: diokan-settings;
     color: $color2;
   }
 }
+
+.diokan-account-upload{
+  @extend .flexbox;
+  flex-direction: column;
+  padding-bottom: 20px;
+  height: 100%;
+  &__description{
+    text-decoration: underline;
+    font-size: 16px;
+    color: $color6;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  &__field{
+    margin-right: 9px;
+    font-size: 18px;
+    color: $color2;
+  }
+  &__img-preview{
+    width: 75px;
+    height: 50px;
+    margin-right: 20px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__id-wrapper{
+    @extend .flexbox;
+    align-items: baseline;
+  }
+}

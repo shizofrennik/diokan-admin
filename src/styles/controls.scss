@@ -24,6 +24,7 @@ $block: diokan-btn;
     font-size: 16px;
     color: $color6;
     border-radius: 0;
+    font-weight: normal;
     &__underline{
       &:after{
         content: '';
