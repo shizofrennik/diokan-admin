@@ -18,9 +18,13 @@ class DashboardLayout extends React.Component {
 
     return (
       <div className="container nopadding">
-        <HeaderDashboard/>
-        <SideMenu/>
-        {children}
+        <div className="diokan-content">       
+          <SideMenu/>
+          <div className="diokan-main">
+            <HeaderDashboard/>
+            {children}
+          </div>
+        </div>
       </div>
     )
   }

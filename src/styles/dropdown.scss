@@ -4,7 +4,7 @@ $block: diokan-dropdown;
   position: relative;
   &.open{
     .#{$block} {
-      &-menu{
+      &-panel{
         display: block;
       }
     }
@@ -14,12 +14,28 @@ $block: diokan-dropdown;
     background: transparent;
     font-size: 14px;
     color: $color5;
+    &.#{$block}{
+      &-toggle{
+        &__user-state{
+          color: $color12;
+        }
+      }
+    }
   }
   &-caret{
     font-size: 13px;
     color: $color5;
+    &.#{$block}{
+      &-caret{
+        &__right{
+          display:inline-block;
+          transform: rotate(-90deg);
+          margin-left: 6px;
+        }
+      }
+    }
   }
-  &-menu{
+  &-panel{
     display: none;
     width: 125px;
     position: absolute;
@@ -31,6 +47,20 @@ $block: diokan-dropdown;
     border-radius: 5px;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
     z-index: 1;
+    &__intro{
+      @extend .flexbox;
+      @extend .justify-center;
+      padding-bottom: 16px;
+      margin-bottom: 14px;
+      font-size: 14px;
+      font-weight: 300;
+      color: $color5;
+      border-bottom: solid 1px #cbd1d5;
+      &-icon{
+        margin-right: 5px;
+        color: $color12;
+      }
+    }
     &:before{
       content: '';
       position: absolute;
@@ -53,6 +83,37 @@ $block: diokan-dropdown;
       border-color: transparent transparent rgba(0, 0, 0, 0.13) transparent;
       z-index: 1;
     }
+    &.#{$block}-panel{
+      &__corner-left{
+        &:before{
+          content: '';
+          position: absolute;
+          top:15px;
+          left: -3px;
+          border-style: solid;
+          border-width: 6px 6px 6px 0;
+          border-color: transparent $color transparent  transparent;
+          z-index: 2;
+        }
+        &:after{
+          content: '';
+          position: absolute;
+          top:15px;
+          left: -4px;
+          border-style: solid;
+          border-width: 6px 6px 6px 0;
+          border-color: transparent rgba(0, 0, 0, 0.13) transparent transparent;
+          z-index: 1;
+        }
+      }
+    }
+    &__intro{
+
+    }
+  }
+  &-menu{
+    padding: 0;
+    margin: 0;
     &__item{
       position: relative;
       list-style: none;
@@ -90,6 +151,18 @@ $block: diokan-dropdown;
           text-decoration: none;
         }
       }
+    }
+  }
+  &__sidebar{
+    .diokan-dropdown-panel{
+      margin: 0;
+      padding: 22px 26px 20px 24px;
+      width: 173px;
+      top:-100%;
+      left:190px;
+    }
+    .diokan-dropdown-menu{
+      padding-left: 3px;
     }
   }
 }

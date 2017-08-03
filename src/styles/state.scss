@@ -1,0 +1,20 @@
+$block: diokan-state;
+
+
+.#{$block} {
+  &__unapproved{
+    color: $color21;
+  }
+  &__waiting{
+    color: $color6;
+  }
+  &__approved{
+    color:$color12;
+  }
+  &__blocked{
+    color: $color22;
+  }
+  &__deleted{
+    color: $color23;
+  }
+}

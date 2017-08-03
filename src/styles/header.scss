@@ -1,13 +1,8 @@
 $block: diokan-header;
 
 .#{$block}{
-  position: absolute;
-  top:0;
-  right: 0;
-  left:0;
   background: $color;
   height: 90px;
-  padding: 0 0 0 100px;
   z-index: 1;
   @extend .flexbox;
   @extend .align-center;
@@ -39,6 +34,12 @@ $block: diokan-header;
     @extend .align-center;
     &-inner{
       margin-right: 30px;
+    }
+    &_photographers{
+      .diokan-header__action-group-inner{
+        margin-right: 0;
+        margin-left: 28px;
+      }
     }
   }
   svg{

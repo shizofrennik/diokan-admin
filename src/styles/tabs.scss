@@ -2,9 +2,6 @@ $block: diokan-tab;
 
 
 .#{$block} {
-  &-content{
-
-  }
   &-pane{
     display: none;
       &.active{
@@ -15,6 +12,9 @@ $block: diokan-tab;
     display: flex;
     padding: 0;
     margin: 0;
+    &-wrap{
+      margin: 0 0 30px 0;
+    }
     &__item{
       margin: 0 52px 0 0;
       list-style: none;
@@ -48,8 +48,4 @@ $block: diokan-tab;
       }
     }
   }
-}
-
-.diokan-tabs{
-  margin: 0 0 30px 0;
 }

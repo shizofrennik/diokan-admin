@@ -19,7 +19,9 @@ class BaseLayout extends React.Component {
     return (
       <div>
         <Header/>
-          <div className="diokan-entry-page-wrap">{children}</div>
+        <div className="diokan-entry-page-wrap">
+          {children}
+        </div>
         <Footer/>
       </div>
     )
