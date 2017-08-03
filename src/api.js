@@ -10,3 +10,7 @@ export function fetchSignUp(auth0UserUrl, data) {
         return status < 500;
     }})
 }
+
+export function fetchChangePassword(auth0UserUrl, data) {
+    return axios.post("https://" + auth0UserUrl + "/dbconnections/change_password", data).then(resp => resp.data)
+}
