@@ -10,6 +10,12 @@ const auth = new AuthService('diWSD6yI7yUkv6lzDaf4l8j0WE34B30S', 'dmkryhtin.auth
 
 export const requireAuth = (nextState, replace) => {
   if (!auth.loggedIn()) {
+    replace({pathname: '/login'})
+  }
+}
+
+export const isLoggedIn = (nextState, replace) => {
+  if (auth.loggedIn()) {
     replace({pathname: '/'})
   }
 }

@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as common from 'common';
 import {browserHistory} from 'react-router';
+import classNames from 'classnames';
 
 class SignupForm extends React.Component {
     constructor(props){
@@ -13,7 +14,7 @@ class SignupForm extends React.Component {
             submitted: false,
             email: '',
             password: '',
-            name: ''
+            spinner: false
         };
         this.handleChangeInput = this.handleChangeInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,17 +38,24 @@ class SignupForm extends React.Component {
     }
 
     handleSubmit(){
+        this.setState({submitted: true});
         var isValidEmail = common.validateEmail(this.state.email);
         var isValidPass = common.validatePass(this.state.password);
-        var isValidName = common.validateName(this.state.name);
-        if(isValidEmail && isValidPass && isValidName) {
-            this.props.auth._doRegistration(this.state.email, this.state.password, this.state.name).then(() => {
+        if(isValidEmail && isValidPass) {
+            this.setState({spinner: true});
+            this.props.auth._doRegistration(this.state.email, this.state.password).then(() => {
                 browserHistory.push('/');
+            }).catch(() => {
+                this.setState({spinner: false});
             });
         }
     }
 
     render() {
+        var isValidEmail = common.validateEmail(this.state.email);
+        var isValidPass = common.validatePass(this.state.password);
+        var isEmptyEmail = this.state.email == '';
+        var isEmptyPass = this.state.password == '';
         return (
             <div className="diokan-entry-page__inner-left">
                 <div className="diokan-form diokan-form-sign-up">
@@ -59,36 +67,41 @@ class SignupForm extends React.Component {
                     <div className="diokan-form-group-box">
                         <div className="diokan-form-group">
                             <input
-                                type="text"
-                                name="name"
-                                className="diokan-form-control" 
-                                placeholder="Full Name"
-                                value={this.state.name} 
-                                onChange={this.handleChangeInput}
-                            />
-                        </div>
-                        <div className="diokan-form-group">
-                            <input
                                 type="email"
                                 name="email"
-                                className="diokan-form-control" 
+                                className={classNames('diokan-form-control', { 'diokan-form-control__has-error' : this.state.submitted && (isEmptyEmail || !isValidEmail)})}
                                 placeholder="Email Address"
                                 value={this.state.email} 
                                 onChange={this.handleChangeInput}
                             />
+                            {this.state.submitted && isEmptyEmail &&
+                                <div className="diokan-form-error">Email can't be blank.</div>
+                            }
+                            {this.state.submitted && !isValidEmail && !isEmptyEmail &&
+                                <div className="diokan-form-error">Please enter a valid email address.</div>
+                            }
                         </div>
                         <div className="diokan-form-group">
                             <input
                                 type="password"
                                 name="password"
-                                className="diokan-form-control" 
+                                className={classNames('diokan-form-control', { 'diokan-form-control__has-error' : this.state.submitted && (isEmptyPass || !isValidPass) })}
                                 placeholder="Password"
                                 value={this.state.password}
                                 onChange={this.handleChangeInput}
                             />
+                            {this.state.submitted && isEmptyPass &&
+                                <div className="diokan-form-error">Password can't be blank.</div>
+                            }
+                            {this.state.submitted && !isValidPass && !isEmptyPass &&
+                                <div className="diokan-form-error">Password must be at least 8 characters.</div>
+                            }
                         </div>
                     </div>
-                    <button className="diokan-btn diokan-btn-form-action" onClick={this.handleSubmit}>Sign Up</button>
+                    <button className="diokan-btn diokan-btn-form-action" onClick={this.handleSubmit}>
+                        {!this.state.spinner && <span className="btn-primary__text">Sign Up</span>}
+                        {this.state.spinner && <i className="fa fa-spinner fa-spin" style={{padding: 3}}></i>}
+                    </button>
                     <div className="diokan-form__delimiter">
                         <span className="diokan-form__delimiter-text">
                             or

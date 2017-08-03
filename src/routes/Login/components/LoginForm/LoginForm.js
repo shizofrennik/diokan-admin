@@ -12,7 +12,9 @@ class LoginForm extends React.Component {
         this.state = {
             submitted: false,
             email: '',
-            password: ''
+            password: '',
+            spinner: false,
+            authError: false
         };
         this.handleChangeInput = this.handleChangeInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,6 +26,9 @@ class LoginForm extends React.Component {
     }
 
     handleChangeInput(e){
+        if(this.state.authError != false) {
+            this.setState({authError: false});
+        }
         var value = e.target.value;
         var name = e.target.name;
         this.setState({[name]: value});
@@ -36,13 +41,55 @@ class LoginForm extends React.Component {
     }
 
     handleSubmit(){
+        this.setState({submitted: true});
         var isValidEmail = common.validateEmail(this.state.email);
         var isValidPass = common.validatePass(this.state.password);
         if(isValidEmail && isValidPass) {
+            this.setState({spinner: true});
             this.props.auth._doAuthentication(this.state.email, this.state.password).then(() => {
                 browserHistory.push('/');
+            }).catch((error) => {
+                this.setState({spinner: false, authError: true});
             });
         }
+    }
+
+    renderValidationPresentErrors(){
+        if(!this.state.submitted)
+            return false;
+
+        if(this.state.email != '' && this.state.password != '')
+            return false;
+
+        return(
+            <div className="diokan-form-error" style={{textAlign: 'center'}}>Oops! That email / password can't be blank.</div>
+        );
+    }
+
+    renderValidationErrors(){
+        var isValidEmail = common.validateEmail(this.state.email);
+        var isValidPass = common.validatePass(this.state.password);
+        if(!this.state.submitted)
+            return false;
+
+        if(this.state.email == '' || this.state.password == '')
+            return false;
+
+        if(isValidEmail && isValidPass)
+            return false;
+
+        return(
+            <div className="diokan-form-error" style={{textAlign: 'center'}}>Oops! That email / password combination is not valid.</div>
+        );
+    }
+
+    renderWrongMessage(){
+        if(!this.state.authError)
+            return false;
+        
+        return(
+            <div className="diokan-form-error" style={{textAlign: 'center'}}>Oops! That email / password combination is wrong.</div>
+        );
     }
 
     render() {
@@ -54,6 +101,9 @@ class LoginForm extends React.Component {
                     </h4>
                 </div>
                 <div className="diokan-form-group-box">
+                    {this.renderValidationPresentErrors()}
+                    {this.renderValidationErrors()}
+                    {this.renderWrongMessage()}
                     <div className="diokan-form-group">
                         <input
                             type="email"
@@ -75,7 +125,7 @@ class LoginForm extends React.Component {
                         />
                     </div>
                     <div className="diokan-form-help-group diokan-form-help-group__inline">
-                        <label className="diokan-custom-input" for="checkbox-1">
+                        <label className="diokan-custom-input" htmlFor="checkbox-1">
                             <input type="checkbox" id="checkbox-1" className="diokan-input"/>
                             <span className="diokan-custom-input__checkbox"></span>
                             <span className="diokan-form-label">Remember me</span>
@@ -83,7 +133,13 @@ class LoginForm extends React.Component {
                         <a href="" className="diokan-link diokan-link__small">Forgot password?</a>
                     </div>
                 </div>
-                <button className="diokan-btn diokan-btn-form-action" onClick={this.handleSubmit}>Log In</button>
+                <button 
+                    className="diokan-btn diokan-btn-form-action" 
+                    onClick={this.handleSubmit}
+                >
+                    {!this.state.spinner && <span className="btn-primary__text">Log In</span>}
+                    {this.state.spinner && <i className="fa fa-spinner fa-spin" style={{padding: 3}}></i>}
+                </button>
                 <div className="diokan-form__delimiter">
                     <span className="diokan-form__delimiter-text">
                         or

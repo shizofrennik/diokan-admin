@@ -32,13 +32,13 @@ export default class AuthService extends EventEmitter {
     });
   }
 
-  _doRegistration(email, password, name) {
+  _doRegistration(email, password) {
     return new Promise((resolve, reject) => {
       var authData = {
         client_id: this.clientId,
         email: email,
         password: password,
-        username: name,
+        username: email,
         connection: auth0DatabaseConnection
       }
 
@@ -70,16 +70,20 @@ export default class AuthService extends EventEmitter {
         scope: "openid email profile offline_access",
       }
 
-      this.auth0.client.login(authData, (err, authResult) => {
-          setAuthorizationHeader(authResult.idToken);
-          this.setToken(authResult.idToken);
-          this.setRefreshToken(authResult.refreshToken);
-          this.auth0.client.userInfo(authResult.accessToken, (error, profile) => {
-              if (!error) {
-                this.setProfile(profile);
-                resolve();
-              }
-          });
+      this.auth0.client.login(authData, (error, authResult) => {
+          if(error) {
+            reject(error);
+          } else {
+            setAuthorizationHeader(authResult.idToken);
+            this.setToken(authResult.idToken);
+            this.setRefreshToken(authResult.refreshToken);
+            this.auth0.client.userInfo(authResult.accessToken, (error, profile) => {
+                if (!error) {
+                  this.setProfile(profile);
+                  resolve();
+                }
+            });
+          }
       });
     })
   }
