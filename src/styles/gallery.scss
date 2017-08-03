@@ -4,6 +4,7 @@ $block: diokan-gallery;
   display: flex;
   flex-wrap: wrap;
   &__item{
+    position: relative;
     height: 225px;
     width: 290px;
     margin-bottom: 30px;
@@ -14,6 +15,43 @@ $block: diokan-gallery;
     img {
       width: 100%;
       height: 100%;
+    }
+  }
+  &__item-hovered{
+    position: absolute;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-view{
+      display: inline-block;
+      padding: 10px 15px;
+      border: 1px solid $color;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.4);
+      color: $color;
+      &:hover{
+        text-decoration: none;
+        color: $color;
+      }
+    }
+    &-delete{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      color: $color;
+      font-size: 20px;
+      padding: 15px 20px;
+      &:hover{
+        text-decoration: none;
+        color: $color;
+      }
     }
   }
   .diokan-drag-box{

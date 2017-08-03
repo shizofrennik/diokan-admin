@@ -5,6 +5,7 @@ import {Link} from 'react-router';
 import {DragDropContext, DragDropContextProvider} from 'react-dnd';
 import HTML5Backend, {NativeTypes} from 'react-dnd-html5-backend';
 import TargetBox from '../components/TargetBox';
+import GalleryItem from 'components/GalleryItem';
 
 class PortfolioContainer extends React.Component {
   constructor(props) {
@@ -15,6 +16,14 @@ class PortfolioContainer extends React.Component {
 
     this.handleFileDrop = this.handleFileDrop.bind(this);
     this.setDropedFiles = this.setDropedFiles.bind(this);
+    this.deleteFile = this.deleteFile.bind(this);
+  }
+
+  deleteFile(file) {
+    let droppedFiles = this.state.droppedFiles.filter(item => {
+      return item.name !== file.name
+    });
+    this.setState({droppedFiles});
   }
   
   setDropedFiles(files) {
@@ -43,13 +52,7 @@ class PortfolioContainer extends React.Component {
   }
   
   getImages(files) {
-    return files.map((file, index) => (
-      <div className="diokan-gallery__item" key={index}>
-        <a href="#">
-          <img src={file.imagePreviewUrl} alt={file.name} className="img-fluid"/>
-        </a>
-      </div>
-    ))
+    return files.map((file, index) => <GalleryItem deleteFile={this.deleteFile} file={file} key={index} />);
   }
 
   render() {
