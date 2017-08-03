@@ -3,6 +3,10 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
 class DashboardContainer extends React.Component {
+    componentWillMount(){
+       this.props.auth.renew()
+    }
+
     render() {
         return (
             <div>

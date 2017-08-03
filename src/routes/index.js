@@ -17,9 +17,11 @@ export const requireAuth = (nextState, replace) => {
 export const createRoutes = (store) => (
   {
     component   : CoreLayout,
+    auth: auth,
     childRoutes : [
       {
         path        : '/',
+        auth: auth,
         component   : DashboardLayout,
         indexRoute  : Dashboard(store),
         childRoutes : [
@@ -27,6 +29,7 @@ export const createRoutes = (store) => (
       },
       {
         component   : BaseLayout,
+        auth: auth,
         childRoutes : [
            LoginRoute(store),
            SignUpRoute(store)

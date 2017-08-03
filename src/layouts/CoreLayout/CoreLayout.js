@@ -7,14 +7,10 @@ import {connect} from 'react-redux';
 class CoreLayout extends React.Component {
   render() {
     let children = null;
-    // if (this.props.children) {
-    //   children = React.cloneElement(this.props.children, {
-    //     auth: this.props.route.auth,
-    //     loggedIn: this.props.route.auth.loggedIn()
-    //   })
-    // }
     if (this.props.children) {
       children = React.cloneElement(this.props.children, {
+        auth: this.props.route.auth,
+        loggedIn: this.props.route.auth.loggedIn()
       })
     }
     

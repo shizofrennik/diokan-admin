@@ -2,10 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import createStore from './store/createStore'
 import './styles/main.scss'
+import {setAuthorizationHeader} from './utils/AuthService'
 
 // Store Initialization
 // ------------------------------------
 const store = createStore(window.__INITIAL_STATE__)
+
+if (sessionStorage.authTokenTunetank) {
+  setAuthorizationHeader(sessionStorage.authTokenTunetank)
+}
 
 // Render Setup
 // ------------------------------------
