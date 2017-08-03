@@ -7,8 +7,8 @@ import {isTokenExpired} from 'utils/jwtHelper';
 
 class CoreLayout extends React.Component {
   componentWillMount(){
-    var refreshToken = sessionStorage.getItem('authRefreshTokenDiokan');
-    var token = sessionStorage.getItem('authTokenDiokan');
+    var refreshToken = localStorage.getItem('authRefreshTokenDiokan');
+    var token = localStorage.getItem('authTokenDiokan');
     if(refreshToken && isTokenExpired(token)){
       this.props.route.auth.renew();
     }

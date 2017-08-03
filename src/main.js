@@ -8,8 +8,8 @@ import {setAuthorizationHeader} from './utils/AuthService'
 // ------------------------------------
 const store = createStore(window.__INITIAL_STATE__)
 
-if (sessionStorage.authTokenTunetank) {
-  setAuthorizationHeader(sessionStorage.authTokenTunetank)
+if (localStorage.authTokenTunetank) {
+  setAuthorizationHeader(localStorage.authTokenTunetank)
 }
 
 // Render Setup

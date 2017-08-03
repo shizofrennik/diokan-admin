@@ -139,34 +139,35 @@ export default class AuthService extends EventEmitter {
 
   logout() {
     browserHistory.replace('/');
-    sessionStorage.removeItem('authTokenDiokan');
-    sessionStorage.removeItem('profileDiokan');
+    localStorage.removeItem('authTokenDiokan');
+    localStorage.removeItem('profileDiokan');
+    localStorage.removeItem('authRefreshTokenDiokan');
     setAuthorizationHeader();
   }
 
   setProfile(profile) {
-    sessionStorage.setItem('profileDiokan', JSON.stringify(profile));
+    localStorage.setItem('profileDiokan', JSON.stringify(profile));
     this.emit('profile_updated', profile);
   }
 
   setToken(idToken) {
-    sessionStorage.setItem('authTokenDiokan', idToken);
+    localStorage.setItem('authTokenDiokan', idToken);
   }
 
   setRefreshToken(refreshToken) {
-    sessionStorage.setItem('authRefreshTokenDiokan', refreshToken);
+    localStorage.setItem('authRefreshTokenDiokan', refreshToken);
   }
 
   getToken() {
-    return sessionStorage.getItem('authTokenDiokan');
+    return localStorage.getItem('authTokenDiokan');
   }
 
   getRefreshToken() {
-    return sessionStorage.getItem('authRefreshTokenDiokan');
+    return localStorage.getItem('authRefreshTokenDiokan');
   }
 
   getProfile() {
-    var profile = sessionStorage.getItem('profileDiokan');
+    var profile = localStorage.getItem('profileDiokan');
     return JSON.parse(profile);
   }
 }
