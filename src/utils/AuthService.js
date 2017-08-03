@@ -39,13 +39,14 @@ export default class AuthService extends EventEmitter {
         email: email,
         password: password,
         username: email,
-        connection: auth0DatabaseConnection
+        connection: auth0DatabaseConnection,
+        scope: "openid email profile offline_access",
       }
 
       api.fetchSignUp(this.domain, authData).then((resp) => {
         if(resp.status == 200) {
           this._doAuthentication(email, password).then(() => {
-             
+             resolve();
           });
         }
         if(resp.status == 400) {
@@ -57,74 +58,60 @@ export default class AuthService extends EventEmitter {
     })
   }
 
-  _doAuthentication(email, password) {
+  _doAuthentication(email, password, remember = false) {
     return new Promise((resolve, reject) => {
       var authData = {
-        realm: 'Username-Password-Authentication',
         grant_type: "password",
         username: email,
-        email: email,
         password: password,
-        audience: auth0api,
-        client_id: this.clientId,
+        audience: "https://dmkryhtin.auth0.com/api/v2/",
         scope: "openid email profile offline_access",
-      }
-
-      this.auth0.client.login(authData, (error, authResult) => {
-          if(error) {
-            reject(error);
-          } else {
-            setAuthorizationHeader(authResult.idToken);
-            this.setToken(authResult.idToken);
-            this.setRefreshToken(authResult.refreshToken);
-            this.auth0.client.userInfo(authResult.accessToken, (error, profile) => {
-                if (!error) {
-                  this.setProfile(profile);
-                  resolve();
-                }
-            });
-          }
-      });
-    })
-  }
-
-  _doRefreshAuthentication(token, name) {
-    return new Promise((resolve, reject) => {
-      var authData = {
-        realm: 'Username-Password-Authentication',
-        grant_type: "refresh_token",
-        nonce: token,
-        refresh_token: token,
-        audience: auth0api,
         client_id: this.clientId
       }
 
+      api.fetchSignIn(this.domain, authData).then((resp) => {
+          setAuthorizationHeader(resp.id_token)
+          this.setToken(resp.id_token)
+          if(remember){
+            this.setRefreshToken(resp.refresh_token);
+          }
+          this.auth0.client.userInfo(resp.access_token, (error, profile) => {
+              if (!error) {
+                this.setProfile(profile);
+                resolve();
+              }
+          });
+      }).catch((error) => {
+        reject(error)
+      });
+    });
+  }
+
+  _doRefreshAuthentication(token) {
+    return new Promise((resolve, reject) => {
       var authData = {
-        nonce: common.generateRandomHash(),
-        usePostMessage: true,
-        redirectUri: `${window.location.origin}/auth/renew`,
+        grant_type: "refresh_token",
+        refresh_token: token,
+        audience: "https://dmkryhtin.auth0.com/api/v2/",
+        scope: "openid email profile offline_access",
+        client_id: this.clientId
       }
 
-      this.auth0.renewAuth(authData, (err, authResult) => {
-          setAuthorizationHeader(authResult.idToken);
-          this.setToken(authResult.idToken);
-          this.setRefreshToken(authResult.refreshToken);
-          this.auth0.client.userInfo(authResult.accessToken, (error, profile) => {
-                if (!error) {
-                  this.setProfile(profile);
-                  resolve();
-                }
-            });
-        });
+      api.fetchSignIn(this.domain, authData).then((resp) => {
+        setAuthorizationHeader(resp.id_token);
+        this.setToken(resp.id_token);
+      }).catch((error) => {
+        reject(error)
+      });
     });
   }
 
   renew(){
     var token = this.getRefreshToken();
     var profile = this.getProfile();
-    // if(token) {
-    //   this._doRefreshAuthentication(token, name);
-    // }
+    if(token) {
+      this._doRefreshAuthentication(token);
+    }
   }
 
   loggedIn() {

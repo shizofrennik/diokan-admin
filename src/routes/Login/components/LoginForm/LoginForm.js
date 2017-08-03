@@ -14,11 +14,13 @@ class LoginForm extends React.Component {
             email: '',
             password: '',
             spinner: false,
-            authError: false
+            authError: false,
+            remember: false
         };
         this.handleChangeInput = this.handleChangeInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
+        this.handleClickRememberButton = this.handleClickRememberButton.bind(this);
     }
 
     static propTypes = {
@@ -40,13 +42,17 @@ class LoginForm extends React.Component {
         }
     }
 
+    handleClickRememberButton(){
+        this.setState({remember: !this.state.remember});
+    }
+
     handleSubmit(){
         this.setState({submitted: true});
         var isValidEmail = common.validateEmail(this.state.email);
         var isValidPass = common.validatePass(this.state.password);
         if(isValidEmail && isValidPass) {
             this.setState({spinner: true});
-            this.props.auth._doAuthentication(this.state.email, this.state.password).then(() => {
+            this.props.auth._doAuthentication(this.state.email, this.state.password, this.state.remember).then(() => {
                 browserHistory.push('/');
             }).catch((error) => {
                 this.setState({spinner: false, authError: true});
@@ -126,7 +132,13 @@ class LoginForm extends React.Component {
                     </div>
                     <div className="diokan-form-help-group diokan-form-help-group__inline">
                         <label className="diokan-custom-input" htmlFor="checkbox-1">
-                            <input type="checkbox" id="checkbox-1" className="diokan-input"/>
+                            <input 
+                                type="checkbox" 
+                                id="checkbox-1" 
+                                value={this.state.remember}
+                                onClick={this.handleClickRememberButton}
+                                className="diokan-input"
+                            />
                             <span className="diokan-custom-input__checkbox"></span>
                             <span className="diokan-form-label">Remember me</span>
                         </label>

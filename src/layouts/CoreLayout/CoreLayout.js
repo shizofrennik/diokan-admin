@@ -5,6 +5,13 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 class CoreLayout extends React.Component {
+  componentWillMount(){
+    var refreshToken = sessionStorage.getItem('authRefreshTokenDiokan');
+    if(refreshToken){
+      this.props.route.auth.renew();
+    }
+  }
+
   render() {
     let children = null;
     if (this.props.children) {

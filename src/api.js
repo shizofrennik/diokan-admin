@@ -6,7 +6,7 @@ export function fetchSignIn(auth0UserUrl, data) {
 }
 
 export function fetchSignUp(auth0UserUrl, data) {
-    return axios.post("https://" + auth0UserUrl + "/dbconnections/signup", data,{validateStatus: (status) => {
+    return axios.post("https://" + auth0UserUrl + "/dbconnections/signup", data, {validateStatus: (status) => {
         return status < 500;
     }})
 }
