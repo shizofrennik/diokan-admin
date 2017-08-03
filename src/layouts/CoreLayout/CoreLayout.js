@@ -3,11 +3,13 @@ import { IndexLink, Link } from 'react-router';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {isTokenExpired} from 'utils/jwtHelper';
 
 class CoreLayout extends React.Component {
   componentWillMount(){
     var refreshToken = sessionStorage.getItem('authRefreshTokenDiokan');
-    if(refreshToken){
+    var token = sessionStorage.getItem('authTokenDiokan');
+    if(refreshToken && isTokenExpired(token)){
       this.props.route.auth.renew();
     }
   }
