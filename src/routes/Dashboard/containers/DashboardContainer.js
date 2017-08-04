@@ -23,24 +23,26 @@ class DashboardContainer extends React.Component {
         </div>
         <div className="diokan-main-inner">
           <div className="diokan-main__filter">
-            <div className="diokan-dropdown">
+            <div className="diokan-dropdown open">
               <button className="diokan-btn diokan-dropdown-toggle">
                 this month
                 <span className="diokan-dropdown-caret">
                   <i className="fa fa-chevron-down" aria-hidden="true"/>
                 </span>
               </button>
-              <ul className="diokan-dropdown-menu">
-                <li className="diokan-dropdown-menu__item">
-                  <a href="javascript:;" className="diokan-dropdown-menu__item-link">this week</a>
-                </li>
-                <li className="diokan-dropdown-menu__item diokan-dropdown-menu__item_active">
-                  <a href="javascript:;" className="diokan-dropdown-menu__item-link">this month</a>
-                </li>
-                <li className="diokan-dropdown-menu__item">
-                  <a href="javascript:;" className="diokan-dropdown-menu__item-link">this year</a>
-                </li>
-              </ul>
+              <div className="diokan-dropdown-panel">
+                <ul className="diokan-dropdown-menu">
+                  <li className="diokan-dropdown-menu__item">
+                    <a href="javascript:;" className="diokan-dropdown-menu__item-link">this week</a>
+                  </li>
+                  <li className="diokan-dropdown-menu__item diokan-dropdown-menu__item_active">
+                    <a href="javascript:;" className="diokan-dropdown-menu__item-link">this month</a>
+                  </li>
+                  <li className="diokan-dropdown-menu__item">
+                    <a href="javascript:;" className="diokan-dropdown-menu__item-link">this year</a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <div className="row diokan-block-group">

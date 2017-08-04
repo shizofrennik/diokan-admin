@@ -136,11 +136,11 @@ export default class AuthService extends EventEmitter {
   }
 
   logout() {
-    browserHistory.replace('/');
     localStorage.removeItem('authTokenDiokan');
     localStorage.removeItem('profileDiokan');
     localStorage.removeItem('authRefreshTokenDiokan');
     setAuthorizationHeader();
+    browserHistory.replace('/login');
   }
 
   setProfile(profile) {

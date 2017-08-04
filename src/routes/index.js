@@ -9,7 +9,7 @@ import SignUpRoute from './Signup';
 import DashboardLayout from '../layouts/DashboardLayout';
 import BaseLayout from '../layouts/BaseLayout';
 
-const auth = new AuthService('diWSD6yI7yUkv6lzDaf4l8j0WE34B30S', 'dmkryhtin.auth0.com');
+export const auth = new AuthService('diWSD6yI7yUkv6lzDaf4l8j0WE34B30S', 'dmkryhtin.auth0.com');
 
 export const requireAuth = (nextState, replace) => {
   if (!auth.loggedIn()) {
