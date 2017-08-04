@@ -6,7 +6,7 @@ import {Link} from 'react-router';
 class DashboardContainer extends React.Component {
   render() {
     return (
-      <main className="diokan-main">
+      <main>
         <div className="diokan-notification">
           <div className="diokan-notification__description">
             Start earning money for your photos! &nbsp;

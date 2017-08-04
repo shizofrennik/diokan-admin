@@ -98,7 +98,7 @@ class PortfolioContainer extends React.Component {
     const {droppedFiles} = this.state;
 
     return (
-      <main className="diokan-main">
+      <main>
         {this.getNotification()}
         <div className="diokan-main-inner diokan-main-inner__portfolio">
           <div className="diokan-gallery">

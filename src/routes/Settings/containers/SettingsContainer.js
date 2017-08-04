@@ -93,7 +93,7 @@ class SettingsContainer extends React.Component {
 
   render() {
     return (
-      <main className="diokan-main">
+      <main>
         <div className="diokan-main-inner diokan-main-inner__settings">
           <div className="diokan-settings">
             <div className="diokan-tabs">
