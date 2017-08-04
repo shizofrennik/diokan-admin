@@ -2,7 +2,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import { Link } from 'react-router';
-import AccountDropdown from '../AccountDropdown';
+import AccountDropdown from '../../AccountDropdown';
 
 class SideMenuAccount extends React.Component {
     constructor(props){
