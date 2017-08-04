@@ -2,6 +2,7 @@ $block: diokan-tab;
 
 
 .#{$block} {
+  margin-bottom: 24px;
   &-pane{
     display: none;
       &.active{
