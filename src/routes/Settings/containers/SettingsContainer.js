@@ -96,7 +96,7 @@ class SettingsContainer extends React.Component {
       <main>
         <div className="diokan-main-inner diokan-main-inner__settings">
           <div className="diokan-settings">
-            <div className="diokan-tabs">
+            <div className="diokan-tab">
               <ul className="diokan-tab-nav">
                 <li className="diokan-tab-nav__item active">
                   <a href="#1b" className="diokan-tab-nav__item-link" data-toggle="tab">
@@ -130,7 +130,7 @@ class SettingsContainer extends React.Component {
                           <label className="diokan-form-label">
                             Full Name
                           </label>
-                          <input type="text" className="diokan-form-control" placeholder="Trisha Hensley"/>
+                          <input type="text" className="diokan-form-control diokan-placeholder-light" placeholder="Enter Full Name"/>
                         </div>
                       </div>
                       <div className="col-md-3">
@@ -138,7 +138,7 @@ class SettingsContainer extends React.Component {
                           <label className="diokan-form-label">
                             Display Name
                           </label>
-                          <input type="text" className="diokan-form-control" placeholder="Trisha H"/>
+                          <input type="text" className="diokan-form-control diokan-placeholder-light" placeholder="Enter Display Name"/>
                         </div>
                       </div>
                       <div className="col-md-6">
@@ -146,7 +146,7 @@ class SettingsContainer extends React.Component {
                           <label className="diokan-form-label">
                             Email
                           </label>
-                          <input type="text" className="diokan-form-control" placeholder="anneta.armstrad@company.com"/>
+                          <input type="text" className="diokan-form-control diokan-placeholder-light" placeholder="Enter Email"/>
                         </div>
                       </div>
                     </div>
@@ -156,7 +156,7 @@ class SettingsContainer extends React.Component {
                           <label className="diokan-form-label">
                             Company Name
                           </label>
-                          <input type="text" className="diokan-form-control" placeholder="Hensley Photography"/>
+                          <input type="text" className="diokan-form-control diokan-placeholder-light" placeholder="Enter Company Name"/>
                         </div>
                       </div>
                       <div className="col-md-3">
@@ -164,7 +164,7 @@ class SettingsContainer extends React.Component {
                           <label className="diokan-form-label">
                             Tax #
                           </label>
-                          <input type="text" className="diokan-form-control" placeholder="1579 4458001"/>
+                          <input type="text" className="diokan-form-control diokan-placeholder-light" placeholder="Enter Tax #"/>
                         </div>
                       </div>
                       <div className="col-md-3">
@@ -172,7 +172,7 @@ class SettingsContainer extends React.Component {
                           <label className="diokan-form-label">
                             Phone
                           </label>
-                          <input type="text" className="diokan-form-control" placeholder="555-435-8564"/>
+                          <input type="text" className="diokan-form-control diokan-placeholder-light" placeholder="Enter Phone"/>
                         </div>
                       </div>
                       <div className="col-md-3">
@@ -184,9 +184,6 @@ class SettingsContainer extends React.Component {
                             <div className="diokan-account-password__field">
                               **********
                             </div>
-                            <button className="diokan-btn diokan-btn-link diokan-btn-link__underline">
-                              Change
-                            </button>
                           </div>
                         </div>
                       </div>
