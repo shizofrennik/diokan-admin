@@ -4,6 +4,7 @@ import Dashboard from './Dashboard';
 import Settings from './Settings';
 import Photographers from './Photographers';
 import Portfolio from './Portfolio';
+import PortfolioReview from './PortfolioReview';
 import LoginRoute from './Login';
 import SignUpRoute from './Signup';
 import DashboardLayout from '../layouts/DashboardLayout';
@@ -36,6 +37,7 @@ export const createRoutes = (store) => (
         childRoutes : [
             Settings(store),
             Portfolio(store),
+            PortfolioReview(store),
             Photographers(store)
         ]
       },
