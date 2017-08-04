@@ -6,6 +6,7 @@ import {DragDropContext, DragDropContextProvider} from 'react-dnd';
 import HTML5Backend, {NativeTypes} from 'react-dnd-html5-backend';
 import TargetBox from '../components/TargetBox';
 import GalleryItem from 'components/GalleryItem';
+import Notification from 'components/Notification';
 
 class PortfolioContainer extends React.Component {
   constructor(props) {
@@ -50,6 +51,28 @@ class PortfolioContainer extends React.Component {
       Promise.all(promiseArr).then(droppedFiles => this.setDropedFiles(droppedFiles));
     }
   }
+
+  getNotification() {
+    const {droppedFiles} = this.state;
+    let description = (droppedFiles.length < 10) ?
+      (<span>
+        Start earning money for your photos! &nbsp;
+        <Link
+          to="portfolio"
+          className="diokan-notification__link">
+          Upload {10 - droppedFiles.length} more portfolio photos
+        </Link>
+        &nbsp; to get started.
+      </span>) :
+      (<span>
+        <a className="diokan-notification__link" href="#">Submit your portfolio</a> to get started.
+      </span>);
+    return (
+      <Notification>
+        {description}
+      </Notification>
+    )
+  }
   
   getImages(files) {
     return files.map((file, index) => <GalleryItem deleteFile={this.deleteFile} file={file} key={index} />);
@@ -61,18 +84,7 @@ class PortfolioContainer extends React.Component {
 
     return (
       <main className="diokan-main">
-        <div className="diokan-notification">
-          <div className="diokan-notification__description">
-            Start earning money for your photos! &nbsp;
-            <Link to="portfolio" className="diokan-notification__link">Upload 10 portfolio photos</Link>
-            &nbsp; to get started.
-          </div>
-          <div className="diokan-notification__action">
-            <button className="diokan-btn diokan-btn-close">
-              <i className="fa fa-times" aria-hidden="true"/>
-            </button>
-          </div>
-        </div>
+        {this.getNotification()}
         <div className="diokan-main-inner diokan-main-inner__portfolio">
           <div className="diokan-gallery">
             <div className="diokan-gallery__item">

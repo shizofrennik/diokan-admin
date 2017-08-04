@@ -38,7 +38,12 @@ class GalleryItem extends React.Component {
         {this.state.hovered && 
         (<div className="diokan-gallery__item-hovered">
           <a className="diokan-gallery__item-hovered-view" href="#">View Image</a>
-          <a className="diokan-gallery__item-hovered-delete" href="#" onClick={() => deleteFile(file)}>x</a>
+          <a 
+            className="diokan-gallery__item-hovered-delete" 
+            href="#" 
+            onClick={() => deleteFile(file)}>
+            <i className="fa fa-trash-o" />
+          </a>
         </div>)}
       </div>
     )
