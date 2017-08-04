@@ -11,7 +11,28 @@ $block: diokan-side-menu;
     }
     &-link{
       font-size: 14px;
-      line-height: 1;
+      transition: color 0.1s;
+      &:hover, &-active{
+        background: $color1;
+        color: $color;
+        transition: color 0.1s;
+        text-decoration: none;
+        .#{$block}{
+          &__item{
+            &-icon{
+              color: $color;
+              transition: color 0s;
+              i{
+                color: $color;
+                transition: color 0.1s;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-icon{
+      font-size: 26px;
       color: $color15;
       font-weight: 300;
       &:hover,

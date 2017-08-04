@@ -1,7 +1,8 @@
-import React from 'react'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
-import {logo} from 'styles/svg/svgs.js'
+import React from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {IndexLink, Link} from 'react-router';
+import {logo} from 'styles/svg/svgs.js';
 
 class SideMenu extends React.Component {
     render() {

@@ -200,16 +200,15 @@ $block: diokan-form;
   }
 
   &-action{
-    position: relative;
     width: 650px;
     margin: 0 auto;
-    background: $color;
     border-radius: 5px;
     .#{$block}-action{
       &__header{
         padding: 60px 0 24px;
         text-align: center;
         background: $color3;
+        border-radius: 5px 5px 0 0;
       }
       &__body{
         padding: 55px 88px 60px;
@@ -239,7 +238,7 @@ $block: diokan-form;
     &.#{$block}-action__submit{
       .#{$block}-action{
         &__body{
-          padding: 49px 130px 60px;
+          padding: 49px 100px 60px;
           margin-bottom: 26px;
         }
         &__description{
