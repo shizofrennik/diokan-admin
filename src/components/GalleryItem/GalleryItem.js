@@ -33,17 +33,19 @@ class GalleryItem extends React.Component {
         onMouseEnter={this.handleMouseEnter} 
         onMouseLeave={this.handleMouseLeave}>
         <a href="#">
-          <img src={file.imagePreviewUrl} alt={file.name} className="img-fluid"/>
+          <img src={file.imagePreviewUrl} alt="photo" className="img-fluid"/>
         </a>
         {this.state.hovered && 
         (<div className="diokan-gallery__item-hovered">
           <a className="diokan-gallery__item-hovered-view" href="#">View Image</a>
-          <a 
-            className="diokan-gallery__item-hovered-delete" 
-            href="#" 
-            onClick={() => deleteFile(file)}>
-            <i className="fa fa-trash-o" />
-          </a>
+          {deleteFile && (
+            <a
+              className="diokan-gallery__item-hovered-delete"
+              href="#"
+              onClick={() => deleteFile(file)}>
+              <i className="fa fa-trash-o" />
+            </a>
+          )}
         </div>)}
       </div>
     )
