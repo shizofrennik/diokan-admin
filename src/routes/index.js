@@ -2,6 +2,7 @@ import CoreLayout from '../layouts/CoreLayout';
 import AuthService from 'utils/AuthService';
 import Dashboard from './Dashboard';
 import Settings from './Settings';
+import Photographers from './Photographers';
 import Portfolio from './Portfolio';
 import LoginRoute from './Login';
 import SignUpRoute from './Signup';
@@ -34,7 +35,8 @@ export const createRoutes = (store) => (
         indexRoute  : Dashboard(store),
         childRoutes : [
             Settings(store),
-            Portfolio(store)
+            Portfolio(store),
+            Photographers(store)
         ]
       },
       {
