@@ -10,6 +10,12 @@ const auth = new AuthService('diWSD6yI7yUkv6lzDaf4l8j0WE34B30S', 'dmkryhtin.auth
 
 export const requireAuth = (nextState, replace) => {
   if (!auth.loggedIn()) {
+    replace({pathname: '/login'})
+  }
+}
+
+export const isLoggedIn = (nextState, replace) => {
+  if (auth.loggedIn()) {
     replace({pathname: '/'})
   }
 }
@@ -17,9 +23,11 @@ export const requireAuth = (nextState, replace) => {
 export const createRoutes = (store) => (
   {
     component   : CoreLayout,
+    auth: auth,
     childRoutes : [
       {
         path        : '/',
+        auth: auth,
         component   : DashboardLayout,
         indexRoute  : Dashboard(store),
         childRoutes : [
@@ -27,6 +35,7 @@ export const createRoutes = (store) => (
       },
       {
         component   : BaseLayout,
+        auth: auth,
         childRoutes : [
            LoginRoute(store),
            SignUpRoute(store)

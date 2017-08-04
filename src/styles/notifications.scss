@@ -35,4 +35,22 @@ $block: diokan-notification;
       color: $color;
     }
   }
+  &-inner{
+    @extend .flexbox;
+    @extend  .align-center;
+    &__icon{
+      @extend .flexbox;
+      @extend .justify-between;
+      @extend  .align-center;
+      margin-right: 10px;
+      color: $color12;
+      font-size: 24px;
+    }
+    &__description{
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.38;
+      color: $color12;
+    }
+  }
 }

@@ -1,0 +1,96 @@
+$block: diokan-table;
+
+.#{$block} {
+  border-radius: 5px;
+  background-color: $color;
+  &__header{
+    border-bottom: solid 2px rgba(140, 150, 169, 0.52);
+    .#{$block}{
+      &__row{
+        height: 53px;
+      }
+      &__cell{
+        padding-top: 5px;
+        font-size: 14px;
+        line-height: 1;
+        color: $color5;
+      }
+    }
+  }
+  &__body{
+    .#{$block} {
+      &__row {
+        height: 56px;
+      }
+      &__cell{
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.38;
+        color: $color2;
+      }
+    }
+  }
+  &__row{
+    @extend .flexbox;
+    @extend .align-center;
+  }
+  &__cell{
+    @extend .flexbox;
+    &-icon{
+      margin-left: 5px;
+      font-size: 13px;
+      line-height: 1;
+      color: $color5;
+      cursor: pointer;
+      &_revert{
+        transform: rotate(-180deg);
+      }
+    }
+  }
+
+  &__photographers{
+    .#{$block} {
+      &__body{
+        .#{$block} {
+          &__row{
+            border-bottom: solid 1px #eaedef;
+          }
+          &__cell{
+            &:nth-of-type(7){
+              padding-left: 10px;
+            }
+          }
+        }
+      }
+      &__cell{
+        &:first-child{
+          padding-left: 29px;
+        }
+        &:nth-of-type(1){
+          width: 18%;
+        }
+        &:nth-of-type(2){
+          width: 25.8%;
+        }
+        &:nth-of-type(3){
+          width: 16.8%;
+        }
+        &:nth-of-type(4){
+          width: 14.4%;
+        }
+        &:nth-of-type(5){
+          width: 12.2%;
+        }
+        &:nth-of-type(6){
+          @extend .justify-end;
+          width: 11.2%;
+          padding-right: 60px;
+        }
+        &:nth-of-type(7){
+          flex:0 1 5%;
+          width: 5%;
+        }
+      }
+    }
+  }
+}

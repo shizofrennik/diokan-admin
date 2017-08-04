@@ -77,6 +77,15 @@ $block: diokan-form;
         font-family: $font-primary;
       }
     }
+    &__has-error {
+      border: solid 1px #fc5959;
+    }
+  }
+  &-error{
+    font-size: 14px;
+    text-align: left;
+    padding: 4px 0px;
+    color: #f34048;
   }
   &-label{
     font-size: 14px;
@@ -161,6 +170,10 @@ $block: diokan-form;
       font-weight: 300;
       color: $color5;
     }
+  }
+
+  &-login{
+    width: 550px;
   }
 
   &-social-entry{
