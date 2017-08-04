@@ -106,18 +106,16 @@ export default class AuthService extends EventEmitter {
     });
   }
 
-  _doChangePassword(email, password) {
+  _doChangePassword(email) {
     return new Promise((resolve, reject) => {
       var authData = {
-        email: email,
-        password: password,
         client_id: this.clientId,
-        connection: auth0DatabaseConnection
+        connection: auth0DatabaseConnection,
+        email: email
       }
       
       api.fetchChangePassword(this.domain, authData).then((resp) => {
-        console.log(resp);
-        resolve();
+        resolve(resp);
       }).catch((error) => {
         reject(error)
       });

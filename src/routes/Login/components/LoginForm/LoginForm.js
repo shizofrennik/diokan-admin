@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as common from 'common';
 import {browserHistory} from 'react-router';
+import { Link } from 'react-router';
 
 class LoginForm extends React.Component {
     constructor(props){
@@ -142,7 +143,9 @@ class LoginForm extends React.Component {
                             <span className="diokan-custom-input__checkbox"></span>
                             <span className="diokan-form-label">Remember me</span>
                         </label>
-                        <a href="" className="diokan-link diokan-link__small">Forgot password?</a>
+                        <Link className="diokan-link diokan-link__small" to="forgot-password">
+                            Forgot password?
+                        </Link>
                     </div>
                 </div>
                 <button 

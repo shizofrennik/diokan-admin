@@ -4,6 +4,7 @@ import Dashboard from './Dashboard';
 import Settings from './Settings';
 import Portfolio from './Portfolio';
 import LoginRoute from './Login';
+import ForgotPasswordRoute from './ForgotPassword';
 import SignUpRoute from './Signup';
 import DashboardLayout from '../layouts/DashboardLayout';
 import BaseLayout from '../layouts/BaseLayout';
@@ -41,8 +42,9 @@ export const createRoutes = (store) => (
         component   : BaseLayout,
         auth: auth,
         childRoutes : [
-           LoginRoute(store),
-           SignUpRoute(store)
+          LoginRoute(store),
+          SignUpRoute(store),
+          ForgotPasswordRoute(store)
         ]
       }
     ]
