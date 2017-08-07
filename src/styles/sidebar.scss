@@ -51,11 +51,10 @@ $block: diokan-sidebar;
   }
   &-tab-content{
     position: absolute;
-    left: 100%;
+    left: 0;
     top:0;
-    bottom: 0;
+    height: 100vh;
     .diokan-tab-pane{
-      display: none;
       width: 210px;
       height: 100%;
       padding: 28px 30px;

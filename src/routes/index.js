@@ -5,6 +5,7 @@ import Settings from './Settings';
 import Photographers from './Photographers';
 import Portfolio from './Portfolio';
 import PortfolioReview from './PortfolioReview';
+import ProfileReview from './ProfileReview';
 import LoginRoute from './Login';
 import ForgotPasswordRoute from './ForgotPassword';
 import SignUpRoute from './Signup';
@@ -39,6 +40,7 @@ export const createRoutes = (store) => (
             Settings(store),
             Portfolio(store),
             PortfolioReview(store),
+            ProfileReview(store),
             Photographers(store)
         ]
       },
