@@ -7,6 +7,7 @@
     "clean": "rimraf dist",
     "compile": "node build/scripts/compile",
     "build": "npm run clean && cross-env NODE_ENV=production npm run compile",
+    "postinstall": "better-npm-run deploy:prod",
     "start": "better-npm-run start:dev",
     "serve": "better-npm-run start",
     "test": "cross-env NODE_ENV=test karma start build/karma.config",
@@ -16,7 +17,16 @@
   },
   "betterScripts": {
     "start:dev": {
-      "command": "node build/scripts/start"
+      "command": "node build/scripts/start",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "deploy:prod": {
+      "command": "npm run clean && cross-env NODE_ENV=production npm run compile",
+      "env": {
+        "NODE_ENV": "production"
+      }
     }
   },
   "repository": {
