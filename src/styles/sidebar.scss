@@ -1,32 +1,34 @@
 $block: diokan-sidebar;
 
 .#{$block}{
-  width: 100px;
-  @extend .flexbox;
-  @extend .align-center;
-  @extend .justify-between;
-  flex-flow: column nowrap;
+  width: 120px;
   background: $color2;
   z-index: 10;
   &__fixed-right{
     position: fixed;
     top:0;
-    //left: 0;
     bottom: 0;
   }
   &__logo{
     width: 38px;
+    padding-top: 31px;
+    margin-bottom: 18px;
     *{
       max-width: 100%;
     }
   }
   &__top{
+    margin-bottom: 50px;
     @extend .flexbox;
-    flex-flow: column nowrap;
-    @extend .align-center;
+    flex-flow: row wrap;
+    @extend .justify-center;
+    align-items: flex-start;
   }
   &__bottom{
-    padding-bottom: 72px;
+    padding-bottom: 20px;
+    align-self: stretch;
+    @extend .flexbox;
+    @extend .align-end;
   }
   &-info{
     @extend .flexbox;
@@ -35,6 +37,34 @@ $block: diokan-sidebar;
     flex-flow: column nowrap;
     .diokan-messages-box{
       margin-bottom: 29px;
+    }
+  }
+  &-group{
+    height: 100%;
+    @extend .flexbox;
+    flex-flow: row wrap;
+    @extend .justify-center;
+    align-items: flex-start;
+  }
+  &__big{
+    width: 120px;
+  }
+  &-tab-content{
+    position: absolute;
+    left: 0;
+    top:0;
+    height: 100vh;
+    .diokan-tab-pane{
+      width: 210px;
+      height: 100%;
+      padding: 28px 30px;
+      background-color: $color24;
+      box-shadow: inset 3px 1px 3px 0 $color25;
+    }
+    &__close{
+      position: absolute;
+      top: 10px;
+      right: 16px;
     }
   }
 }

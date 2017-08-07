@@ -6,10 +6,8 @@ $block: diokan-entry-page;
   padding: 82px 0 64px;
   &-wrap{
     @extend .flexbox;
-    min-height: 100vh;
     flex-direction: column;
     @extend .justify-between;
-    padding-top: 90px;
   }
   &__inner{
     @extend .flexbox;

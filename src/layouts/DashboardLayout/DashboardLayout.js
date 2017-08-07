@@ -7,12 +7,24 @@ import HeaderDashboard from 'components/HeaderDashboard';
 import SideMenu from 'components/SideMenu';
 
 class DashboardLayout extends React.Component {
-  render() {    
+  render() {
+    let children = null;
+    if (this.props.children) {
+      children = React.cloneElement(this.props.children, {
+        auth: this.props.route.auth,
+        loggedIn: this.props.route.auth.loggedIn()
+      })
+    }
+
     return (
       <div className="container nopadding">
-        <HeaderDashboard/>
-        <SideMenu/>
-        {this.props.children}
+        <div className="diokan-content">       
+          <SideMenu/>
+          <div className="diokan-main">
+            <HeaderDashboard/>
+            {children}
+          </div>
+        </div>
       </div>
     )
   }

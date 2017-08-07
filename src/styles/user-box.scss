@@ -5,11 +5,13 @@ $block: diokan-user-box;
     font-size: 44px;
     line-height: 1;
     color: $color15;
+    cursor: pointer;
   }
   &__name{
     font-size: 14px;
     color: $color;
     text-align: center;
+    cursor: pointer;
   }
 
 }

@@ -77,6 +77,15 @@ $block: diokan-form;
         font-family: $font-primary;
       }
     }
+    &__has-error {
+      border: solid 1px #fc5959;
+    }
+  }
+  &-error{
+    font-size: 14px;
+    text-align: left;
+    padding: 4px 0px;
+    color: #f34048;
   }
   &-label{
     font-size: 14px;
@@ -163,6 +172,10 @@ $block: diokan-form;
     }
   }
 
+  &-login{
+    width: 550px;
+  }
+
   &-social-entry{
     .#{$block} {
       &-group{
@@ -187,16 +200,15 @@ $block: diokan-form;
   }
 
   &-action{
-    position: relative;
     width: 650px;
     margin: 0 auto;
-    background: $color;
     border-radius: 5px;
     .#{$block}-action{
       &__header{
         padding: 60px 0 24px;
         text-align: center;
         background: $color3;
+        border-radius: 5px 5px 0 0;
       }
       &__body{
         padding: 55px 88px 60px;
@@ -226,7 +238,7 @@ $block: diokan-form;
     &.#{$block}-action__submit{
       .#{$block}-action{
         &__body{
-          padding: 49px 130px 60px;
+          padding: 49px 100px 60px;
           margin-bottom: 26px;
         }
         &__description{
@@ -271,6 +283,7 @@ $block: diokan-form;
       padding: 40px 30px 40px 30px;
       margin-bottom: 30px;
       .diokan-form-control{
+        color: $color2;
         &::-webkit-input-placeholder       {font-size: 18px;color: $color2;}
         &::-moz-placeholder                {font-size: 18px;color: $color2;}
         &:-moz-placeholder                 {font-size: 18px;color: $color2;}

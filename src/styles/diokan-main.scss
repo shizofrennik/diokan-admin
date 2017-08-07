@@ -2,7 +2,10 @@ $block: diokan-main;
 
 .#{$block} {
   position: relative;
-  padding: 90px 0 0 100px;
+  margin-left: 120px;
+  &.sidebar-opened{
+    margin-left: 330px;
+  }
   &-inner{
     position: relative;
     padding: 8px 30px 30px;
@@ -13,6 +16,12 @@ $block: diokan-main;
         }
         &__settings{
           padding: 34px 30px 30px;
+        }
+        &__side-menu{
+          margin-left: 210px;
+        }
+        &__photographers{
+          padding: 23px 30px 30px;
         }
       }
     }
