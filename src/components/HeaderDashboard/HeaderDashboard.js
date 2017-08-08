@@ -23,7 +23,7 @@ class HeaderDashboard extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <button className="diokan-btn diokan-btn-secondary diokan-btn-secondary_role-upload">
+                        <button className="diokan-btn diokan-btn-secondary diokan-btn-secondary_role-upload diokan-helper__coming-soon">
                         <span className="diokan-icon diokan-icon__upload">
                         </span>Upload
                         </button>

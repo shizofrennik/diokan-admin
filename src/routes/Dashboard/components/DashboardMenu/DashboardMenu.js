@@ -58,7 +58,7 @@ class DashboardMenu extends React.Component {
                               activeClassName="active"
                               className="diokan-side-menu__item-aside-link">Settings</Link>
                         </li>
-                        <li className="diokan-side-menu__item">
+                        <li className="diokan-side-menu__item diokan-helper__coming-soon">
                             <a href="" className="diokan-side-menu__item-aside-link">Public Profile</a>
                         </li>
                         <li className="diokan-side-menu__item">
@@ -67,16 +67,16 @@ class DashboardMenu extends React.Component {
                               activeClassName="active" 
                               className="diokan-side-menu__item-aside-link">Portfolio</Link>
                         </li>
-                        <li className="diokan-side-menu__item">
+                        <li className="diokan-side-menu__item diokan-helper__coming-soon">
                             <a href="" className="diokan-side-menu__item-aside-link">Sessions</a>
                         </li>
-                        <li className="diokan-side-menu__item">
+                        <li className="diokan-side-menu__item diokan-helper__coming-soon">
                             <a href="" className="diokan-side-menu__item-aside-link">Earnings</a>
                         </li>
-                        <li className="diokan-side-menu__item">
+                        <li className="diokan-side-menu__item diokan-helper__coming-soon">
                             <a href="" className="diokan-side-menu__item-aside-link">Billing and payments</a>
                         </li>
-                        <li className="diokan-side-menu__item">
+                        <li className="diokan-side-menu__item diokan-helper__coming-soon">
                             <a href="" className="diokan-side-menu__item-aside-link">Inbox</a>
                         </li>
                     </ul>

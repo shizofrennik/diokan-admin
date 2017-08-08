@@ -39,7 +39,7 @@ class GalleryItem extends React.Component {
         </a>
         {this.state.hovered && 
         (<div className="diokan-gallery__item-hovered">
-          <a className="diokan-gallery__item-hovered-view" href="#">View Image</a>
+          <a className="diokan-gallery__item-hovered-view diokan-helper__coming-soon" href="#">View Image</a>
           {deleteFile && (
             <a
               className="diokan-gallery__item-hovered-delete"

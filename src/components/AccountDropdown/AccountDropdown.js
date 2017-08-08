@@ -8,7 +8,7 @@ import { auth } from 'routes';
 class AccountDropdown extends React.Component {
     render() {
         return (
-            <div className="diokan-dropdown-panel diokan-dropdown-panel__account show">
+            <div className="diokan-dropdown-panel diokan-dropdown-panel__account show diokan-helper__coming-soon">
                 <ul className="diokan-dropdown-menu">
                     <li className="diokan-dropdown-menu__item">
                         <a href="javascript:;" className="diokan-dropdown-menu__item-link">Edit my profile</a>
