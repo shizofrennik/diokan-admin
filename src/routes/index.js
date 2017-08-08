@@ -1,9 +1,7 @@
 import CoreLayout from '../layouts/CoreLayout';
 import AuthService from 'utils/AuthService';
 import Dashboard from './Dashboard';
-import Settings from './Settings';
 import Photographers from './Photographers';
-import Portfolio from './Portfolio';
 import PortfolioReview from './PortfolioReview';
 import ProfileReview from './ProfileReview';
 import LoginRoute from './Login';
@@ -37,8 +35,6 @@ export const createRoutes = (store) => (
         component   : DashboardLayout,
         indexRoute  : Dashboard(store),
         childRoutes : [
-            Settings(store),
-            Portfolio(store),
             PortfolioReview(store),
             ProfileReview(store),
             Photographers(store)

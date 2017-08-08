@@ -5,8 +5,6 @@ import {IndexLink, Link} from 'react-router';
 import {logo} from 'styles/svg/svgs.js';
 import SideMenuAccount from '../SideMenuAccount';
 import SideMenuAdmin from '../SideMenuAdmin';
-import SideMenuPhotographer from '../SideMenuPhotographer';
-import SideMenuUser from '../SideMenuUser';
 
 class SideMenuContainer extends React.Component {
     render() {

@@ -19,6 +19,22 @@ $block: diokan-gallery;
       height: 100%;
     }
   }
+  &__item-admin{
+    position: relative;
+    height: 225px;
+    width: 290px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 35px;
+    margin-right: 35px;
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
   &__item-hovered{
     position: absolute;
     z-index: 1;

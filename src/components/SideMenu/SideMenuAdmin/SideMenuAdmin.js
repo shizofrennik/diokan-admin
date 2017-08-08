@@ -8,25 +8,25 @@ class SideMenuAdmin extends React.Component {
         return (
             <ul className="diokan-side-tabs">
                 <li className="diokan-side-tabs__item">
-                    <a href="#dashboard" className="diokan-side-tabs__item-link" data-toggle="tab">
+                    <IndexLink to="/" activeClassName="active" className="diokan-side-tabs__item-link" data-toggle="tab">
                     <span className="diokan-side-tabs__item-icon">
-                        <i className="fa fa-tachometer" aria-hidden="true"></i>
+                        <i className="fa fa-tachometer" aria-hidden="true" />
                     </span>
                         Dashboard
-                    </a>
+                    </IndexLink>
                 </li>
                 <li className="diokan-side-tabs__item">
-                    <a href="#photographers" className="diokan-side-tabs__item-link" data-toggle="tab">
+                    <Link to="/photographers" activeClassName="active" className="diokan-side-tabs__item-link" data-toggle="tab">
                     <span className="diokan-side-tabs__item-icon">
-                        <i className="fa fa-camera-retro" aria-hidden="true"></i>
+                        <i className="fa fa-camera-retro" aria-hidden="true" />
                     </span>
                         Photographers
-                    </a>
+                    </Link>
                 </li>
                 <li className="diokan-side-tabs__item">
                     <a href="#clients" className="diokan-side-tabs__item-link" data-toggle="tab">
                     <span className="diokan-side-tabs__item-icon">
-                    <i className="fa fa-users" aria-hidden="true"></i>
+                    <i className="fa fa-users" aria-hidden="true" />
                     </span>
                         Clients
                     </a>
@@ -34,7 +34,7 @@ class SideMenuAdmin extends React.Component {
                 <li className="diokan-side-tabs__item">
                     <a href="#earning" className="diokan-side-tabs__item-link" data-toggle="tab">
                     <span className="diokan-side-tabs__item-icon">
-                        <i className="fa fa-bar-chart" aria-hidden="true"></i>
+                        <i className="fa fa-bar-chart" aria-hidden="true" />
                     </span>
                         Earnings
                     </a>
@@ -42,7 +42,7 @@ class SideMenuAdmin extends React.Component {
                 <li className="diokan-side-tabs__item">
                     <a href="#payments" className="diokan-side-tabs__item-link" data-toggle="tab">
                     <span className="diokan-side-tabs__item-icon">
-                    <i className="fa fa-credit-card" aria-hidden="true"></i>
+                    <i className="fa fa-credit-card" aria-hidden="true" />
                     </span>
                         Payments
                     </a>
@@ -50,7 +50,7 @@ class SideMenuAdmin extends React.Component {
                 <li className="diokan-side-tabs__item">
                     <a href="#notifications" className="diokan-side-tabs__item-link" data-toggle="tab">
                     <span className="diokan-side-tabs__item-icon">
-                    <i className="fa fa-bell" aria-hidden="true"></i>
+                    <i className="fa fa-bell" aria-hidden="true" />
                     </span>
                         Notifications
                     </a>
@@ -58,7 +58,7 @@ class SideMenuAdmin extends React.Component {
                 <li className="diokan-side-tabs__item">
                     <a href="#resources" className="diokan-side-tabs__item-link" data-toggle="tab">
                     <span className="diokan-side-tabs__item-icon">
-                    <i className="fa fa-book" aria-hidden="true"></i>
+                    <i className="fa fa-book" aria-hidden="true" />
                     </span>
                         Resources
                     </a>

@@ -1,6 +1,9 @@
 $block: diokan-table;
 
 .#{$block} {
+  a {
+    text-decoration: none;
+  }
   border-radius: 5px;
   background-color: $color;
   &__header{
@@ -33,6 +36,10 @@ $block: diokan-table;
   &__row{
     @extend .flexbox;
     @extend .align-center;
+    cursor: pointer;
+    &:hover{
+      background-color: $color13;
+    }
   }
   &__cell{
     @extend .flexbox;
