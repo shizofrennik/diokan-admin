@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 class GalleryItem extends React.Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class GalleryItem extends React.Component {
 
   static propTypes = {
     file: PropTypes.object,
-    deleteFile: PropTypes.func
+    deleteFile: PropTypes.func,
+    admin: PropTypes.bool
   };
   
   handleMouseEnter() {
@@ -26,10 +28,10 @@ class GalleryItem extends React.Component {
   }
   
   render() {
-    let {file, deleteFile} = this.props;
+    let {file, deleteFile, admin} = this.props;
     return (
       <div 
-        className="diokan-gallery__item" 
+        className={classNames({"diokan-gallery__item-admin": admin, "diokan-gallery__item": !admin})} 
         onMouseEnter={this.handleMouseEnter} 
         onMouseLeave={this.handleMouseLeave}>
         <a href="#">

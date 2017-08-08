@@ -9,6 +9,16 @@ $block: diokan-side-menu;
     &:last-child{
       margin-bottom: 0;
     }
+    &-aside-link{
+      font-size: 14px;
+      color: $color15;
+      text-decoration: none;
+      transition: color 0.1s;
+      &:hover, &.active {
+        text-decoration: none;
+        color: $color1;
+      }
+    }
     &-link{
       font-size: 14px;
       transition: color 0.1s;
