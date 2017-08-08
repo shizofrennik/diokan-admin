@@ -32,7 +32,6 @@ $block: diokan-side-tabs;
           }
         }
       }
-
     }
     &-link{
       @extend .flexbox;
@@ -47,6 +46,28 @@ $block: diokan-side-tabs;
       &:active,
       &:focus{
         @extend .diokan-side-tabs__item.active;
+      }
+      &.active{
+        background: $color1;
+        color: $color;
+        transition: color 0.1s;
+        text-decoration: none;
+        .#{$block}{
+          &__item{
+            &-link{
+              color: $color;
+              text-decoration: none;
+            }
+            &-icon{
+              color: $color;
+              transition: color 0s;
+              i{
+                color: $color;
+                transition: color 0.1s;
+              }
+            }
+          }
+        }
       }
     }
     &-icon{

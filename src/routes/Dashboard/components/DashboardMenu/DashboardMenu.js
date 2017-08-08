@@ -9,9 +9,9 @@ class DashboardMenu extends React.Component {
             <div className="diokan-sidebar-tab-content">
                 <div className="diokan-tab-pane active" id="dashboard">
                     <div className="diokan-sidebar-tab-content__close">
-                        <button className="diokan-btn diokan-btn-close diokan-btn-close__small">
-                            <i className="fa fa-times" aria-hidden="true"></i>
-                        </button>
+                        <Link to="/photographers" className="diokan-btn diokan-btn-close diokan-btn-close__small">
+                            <i className="fa fa-times" aria-hidden="true" />
+                        </Link>
                     </div>
                     <div className="diokan-user-state">
                         <div className="diokan-user-state__name">
@@ -21,13 +21,13 @@ class DashboardMenu extends React.Component {
                             <button className="diokan-btn diokan-dropdown-toggle diokan-dropdown-toggle__user-state">
                                 Approved
                                 <span className="diokan-dropdown-caret diokan-dropdown-caret__right">
-                                    <i className="fa fa-chevron-down" aria-hidden="true"></i>
+                                    <i className="fa fa-chevron-down" aria-hidden="true" />
                                 </span>
                             </button>
                             <div className="diokan-dropdown-panel  diokan-dropdown-panel__corner-left">
                                 <div className="diokan-dropdown-panel__intro">
                                         <span className="diokan-dropdown-panel__intro-icon">
-                                            <i className="fa fa-check" aria-hidden="true"></i>
+                                            <i className="fa fa-check" aria-hidden="true" />
                                         </span>
                                         Portfolio
                                 </div>
@@ -53,25 +53,31 @@ class DashboardMenu extends React.Component {
                     </div>
                     <ul className="diokan-side-menu">
                         <li className="diokan-side-menu__item">
-                            <a href="" className="diokan-side-menu__item-link active">Settings</a>
+                            <Link
+                              to="/profile-review"
+                              activeClassName="active"
+                              className="diokan-side-menu__item-aside-link">Settings</Link>
                         </li>
                         <li className="diokan-side-menu__item">
-                            <a href="" className="diokan-side-menu__item-link">Public Profile</a>
+                            <a href="" className="diokan-side-menu__item-aside-link">Public Profile</a>
                         </li>
                         <li className="diokan-side-menu__item">
-                            <a href="" className="diokan-side-menu__item-link">Portfolio</a>
+                            <Link 
+                              to="/portfolio-review" 
+                              activeClassName="active" 
+                              className="diokan-side-menu__item-aside-link">Portfolio</Link>
                         </li>
                         <li className="diokan-side-menu__item">
-                            <a href="" className="diokan-side-menu__item-link">Sessions</a>
+                            <a href="" className="diokan-side-menu__item-aside-link">Sessions</a>
                         </li>
                         <li className="diokan-side-menu__item">
-                            <a href="" className="diokan-side-menu__item-link">Earnings</a>
+                            <a href="" className="diokan-side-menu__item-aside-link">Earnings</a>
                         </li>
                         <li className="diokan-side-menu__item">
-                            <a href="" className="diokan-side-menu__item-link">Billing and payments</a>
+                            <a href="" className="diokan-side-menu__item-aside-link">Billing and payments</a>
                         </li>
                         <li className="diokan-side-menu__item">
-                            <a href="" className="diokan-side-menu__item-link">Inbox</a>
+                            <a href="" className="diokan-side-menu__item-aside-link">Inbox</a>
                         </li>
                     </ul>
                 </div>

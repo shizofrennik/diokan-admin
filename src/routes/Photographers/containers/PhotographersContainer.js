@@ -1,6 +1,7 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
 import classNames from 'classnames';
 
 class PhotographersContainer extends React.Component {
@@ -119,7 +120,7 @@ class PhotographersContainer extends React.Component {
     let {currentFilter} = this.state;
     return this.getFilteredPhotographers(currentFilter).map(photographer => (
       (
-        <div className="diokan-table__row" key={photographer.email}>
+        <Link to="/profile-review" className="diokan-table__row" key={photographer.email}>
           <div className="diokan-table__cell">
             {photographer.name}
           </div>
@@ -143,7 +144,7 @@ class PhotographersContainer extends React.Component {
           <div className="diokan-table__cell">
             {photographer.rank}
           </div>
-        </div>
+        </Link>
       )
     ))
   }
