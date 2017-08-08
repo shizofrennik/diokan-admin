@@ -119,7 +119,7 @@ class ProfileReviewContainer extends React.Component {
                     </div>
                   </form>
                   <div className="diokan-controls-right">
-                    <div className="diokan-btn diokan-btn-primary diokan-btn-primary__settings">
+                    <div className="diokan-btn diokan-btn-primary diokan-btn-primary__settings diokan-helper__coming-soon">
                       Save
                     </div>
                   </div>

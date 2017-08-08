@@ -2,52 +2,62 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
+import Notification from 'components/Notification';
 
 class DashboardContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showFilter: false
+    }
+
+    this.toggleFilter = this.toggleFilter.bind(this);
+  }
+
+  toggleFilter() {
+    this.setState({showFilter: !this.state.showFilter})
+  }
+
+  getFilterList() {
+    if(this.state.showFilter) {
+      return (
+        <div className="diokan-dropdown-panel diokan-helper__coming-soon">
+          <ul className="diokan-dropdown-menu">
+            <li className="diokan-dropdown-menu__item">
+              <a href="javascript:;" className="diokan-dropdown-menu__item-link">this week</a>
+            </li>
+            <li className="diokan-dropdown-menu__item diokan-dropdown-menu__item_active">
+              <a href="javascript:;" className="diokan-dropdown-menu__item-link">this month</a>
+            </li>
+            <li className="diokan-dropdown-menu__item">
+              <a href="javascript:;" className="diokan-dropdown-menu__item-link">this year</a>
+            </li>
+          </ul>
+        </div>
+      )
+    } else {
+      return null;
+    }
+  }
+  
   render() {
     return (
       <main>
-        <div className="diokan-notification">
-          <div className="diokan-notification__description">
-            Start earning money for your photos! &nbsp;
-            <Link to="settings" className="diokan-notification__link">Please, set up your account</Link>
-            &nbsp; and &nbsp;
-            <Link to="portfolio" className="diokan-notification__link">upload 10 portfolio photos</Link>
-            &nbsp; to get started.
-          </div>
-          <div className="diokan-notification__action">
-            <button className="diokan-btn diokan-btn-close">
-              <i className="fa fa-times" aria-hidden="true"/>
-            </button>
-          </div>
-        </div>
         <div className="diokan-main-inner">
           <div className="diokan-main__filter">
             <div className="diokan-dropdown open">
-              <button className="diokan-btn diokan-dropdown-toggle">
+              <button className="diokan-btn diokan-dropdown-toggle" onClick={this.toggleFilter}>
                 this month
                 <span className="diokan-dropdown-caret">
                   <i className="fa fa-chevron-down" aria-hidden="true"/>
                 </span>
               </button>
-              <div className="diokan-dropdown-panel">
-                <ul className="diokan-dropdown-menu">
-                  <li className="diokan-dropdown-menu__item">
-                    <a href="javascript:;" className="diokan-dropdown-menu__item-link">this week</a>
-                  </li>
-                  <li className="diokan-dropdown-menu__item diokan-dropdown-menu__item_active">
-                    <a href="javascript:;" className="diokan-dropdown-menu__item-link">this month</a>
-                  </li>
-                  <li className="diokan-dropdown-menu__item">
-                    <a href="javascript:;" className="diokan-dropdown-menu__item-link">this year</a>
-                  </li>
-                </ul>
-              </div>
+              {this.getFilterList()}
             </div>
           </div>
           <div className="row diokan-block-group">
             <div className="col-md-4">
-              <div className="diokan-card-statistic">
+              <div className="diokan-card-statistic diokan-helper__coming-soon">
                 <div className="diokan-card-statistic__icon">
                   <i className="fa fa-camera-retro" aria-hidden="true"/>
                 </div>
@@ -62,7 +72,7 @@ class DashboardContainer extends React.Component {
               </div>
             </div>
             <div className="col-md-4">
-              <div className="diokan-card-statistic">
+              <div className="diokan-card-statistic diokan-helper__coming-soon">
                 <div className="diokan-card-statistic__icon">
                   <i className="fa fa-usd" aria-hidden="true"/>
                 </div>
@@ -77,7 +87,7 @@ class DashboardContainer extends React.Component {
               </div>
             </div>
             <div className="col-md-4">
-              <div className="diokan-card-statistic">
+              <div className="diokan-card-statistic diokan-helper__coming-soon">
                 <div className="diokan-card-statistic__icon">
                   <i className="fa fa-bar-chart" aria-hidden="true"/>
                 </div>
@@ -94,7 +104,7 @@ class DashboardContainer extends React.Component {
           </div>
           <div className="row diokan-block-group diokan-blocks-equal">
             <div className="col-md-4">
-              <div className="diokan-check-list">
+              <div className="diokan-check-list diokan-helper__coming-soon">
                 <div className="diokan-check-list__header">
                   <div className="diokan-title-secondary">
                     Tasks
@@ -153,7 +163,7 @@ class DashboardContainer extends React.Component {
               </div>
             </div>
             <div className="col-md-4">
-              <div className="diokan-news">
+              <div className="diokan-news diokan-helper__coming-soon">
                 <div className="diokan-news__header">
                   <div className="diokan-title-secondary">
                     Resources
@@ -290,7 +300,7 @@ class DashboardContainer extends React.Component {
               </div>
             </div>
             <div className="col-md-4">
-              <div className="diokan-profile-card">
+              <div className="diokan-profile-card diokan-helper__coming-soon">
                 <div className="diokan-profile-card__header">
                   <div className="diokan-title-secondary">
                     My Profile
@@ -388,7 +398,7 @@ class DashboardContainer extends React.Component {
           </div>
           <div className="row">
             <div className="col-md-12">
-              <div className="diokan-announcements">
+              <div className="diokan-announcements diokan-helper__coming-soon">
                 <div className="diokan-announcements__header">
                   Announcements
                 </div>
